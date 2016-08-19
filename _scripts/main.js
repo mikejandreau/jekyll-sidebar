@@ -92,7 +92,25 @@ $(document).ready(function() {
     })
   }
 
+  // footer fixing code
+  function stickFooter() {
+    var footer = $(".site-footer");
+    var pos = footer.position();
+    var height = $(window).height();
+    height = height - pos.top;
+    height = height - footer.outerHeight();
+    if (height > 0) {
+      footer.css({'margin-top': height + 'px'});
+    }
+  }
+  stickFooter();
+  $(window).resize(function () {
+    stickFooter();
+  });
 
   init();
 
 });
+
+
+
