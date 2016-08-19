@@ -16,7 +16,7 @@
 @import "modules/tables";
 @import "modules/spacing";
 @import "modules/media-queries";
-@import "syntax";
+// @import "syntax";
 
 
 :root {
@@ -31,10 +31,17 @@ body {
 // html, body { height: 100%; }
 
 .scrollup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 0;
+	display: none;
+	position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background: teal;
+    color: #fff;
+    padding: .4em .8em;
+    border-radius: 100px;
+	text-decoration: none;
+    font-size: 1em;
+    line-height: 2em;
 }
 
 .hero {
