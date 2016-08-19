@@ -1,9 +1,17 @@
 // @import "reset";
 @import "syntax";
 
+
+:root {
+	--space: 50px;
+}
+
 body {
   background: #f4f4f4;
 }
+
+
+// html, body { height: 100%; }
 
 .scrollup {
   display: none;
@@ -88,27 +96,27 @@ body {
 
 
 // footer fix
-// .site {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-// }
-// .site-header,
-// .site-footer {
-//   flex: none;
-// }
-// .site-content {
-//   flex: 1 0 auto;
-//   padding: var(--space) var(--space) 0;
-//   width: 100%;
-// }
-// .site-content::after {
-//   content: '\00a0'; /* &nbsp; */
-//   display: block;
-//   margin-top: var(--space);
-//   height: 0px;
-//   visibility: hidden;
-// }
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.site-header,
+.site-footer {
+  flex: none;
+}
+.site-content {
+  flex: 1 0 auto;
+  padding: var(--space) 0 0;
+  width: 100%;
+}
+.site-content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: var(--space);
+  height: 0px;
+  visibility: hidden;
+}
 // end footer fix
 
 // /*****************************************************************************/
@@ -137,7 +145,8 @@ body {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee; }
     .navbar {
-    	background: rgba(255,0,0,0.5);
+    	// background: rgba(255,0,0,0.5);
+    	transition: .3s;
     }
   .navbar-spacer {
     display: none; }
@@ -156,7 +165,7 @@ body {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .2rem;
-    margin: 0 10px;
+    margin: 0;
     text-decoration: none;
     line-height: 6.5rem;
     color: #222; }
@@ -168,7 +177,8 @@ body {
     left: 0; }
   .has-docked-nav .navbar-spacer {
     display: block;
-    background: rgba(0,0,255,0.5); }
+    // background: rgba(0,0,255,0.5); 
+}
   /* Re-overiding the width 100% declaration to match size of % based container */
   // .has-docked-nav .navbar > .container {
   //   width: 80%; }
