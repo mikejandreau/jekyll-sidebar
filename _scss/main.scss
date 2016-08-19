@@ -1,4 +1,21 @@
-// @import "reset";
+// Base files
+@import "base/normalize";
+@import "base/variables";
+@import "base/functions";
+@import "base/base-styles";
+@import "base/utils";
+@import "base/typography";
+
+// Modules
+@import "modules/grid";
+@import "modules/buttons";
+@import "modules/forms";
+@import "modules/lists";
+@import "modules/code";
+@import "modules/_run_prettify";
+@import "modules/tables";
+@import "modules/spacing";
+@import "modules/media-queries";
 @import "syntax";
 
 
@@ -28,7 +45,8 @@ body {
     background-position: center;
     background-size: cover;
     text-align: center;
-
+	color: #fff;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     padding: 5em 0;
 }
 
@@ -71,24 +89,7 @@ body {
 
 
 
-// /* Base files. */
-@import "base/normalize";
-@import "base/variables";
-@import "base/functions";
-@import "base/base-styles";
-@import "base/utils";
-@import "base/typography";
 
-// /* Modules */
-@import "modules/grid";
-@import "modules/buttons";
-@import "modules/forms";
-@import "modules/lists";
-@import "modules/code";
-@import "modules/_run_prettify";
-@import "modules/tables";
-@import "modules/spacing";
-@import "modules/media-queries";
 
 // .display-none {
 // 	display: none;
@@ -107,7 +108,8 @@ body {
 }
 .site-content {
   flex: 1 0 auto;
-  padding: var(--space) 0 0;
+  // padding: var(--space) 0 0;
+  padding-top: 2.5rem;
   width: 100%;
 }
 .site-content::after {
@@ -128,11 +130,6 @@ body {
 
 
 
-// /* Larger than tablet */
-// // @media (min-width: 750px) {
-//   /* Navbar */
-  // .navbar + .docs-section {
-  //   border-top-width: 0; }
   .navbar,
   .navbar-spacer {
     display: block;
@@ -179,9 +176,7 @@ body {
     display: block;
     // background: rgba(0,0,255,0.5); 
 }
-  /* Re-overiding the width 100% declaration to match size of % based container */
-  // .has-docked-nav .navbar > .container {
-  //   width: 80%; }
+
 
 .container:after, .row:after, .u-cf {
     content: "";
@@ -190,62 +185,78 @@ body {
 }
 
 
-// /* Shared
-// â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
-// .button {
-//   border-radius: 100px;
-// }
 
-// /* Sections
-// â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
-// .section {
-//   padding: 8rem 0 7rem;
-//   text-align: center;
-// }
-// .section-heading,
-// .section-description {
-//   margin-bottom: 1.2rem;
-// }
 
-// /* Hero
-// â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
-// .phones {
-//   position: relative;
-// }
-// .phone {
-//   position: relative;
-//   max-width: 80%;
-//   margin: 3rem auto -12rem;
-// }
-// .phone + .phone {
-//   display: none;
-// }
+.meta {
+    color: #aaa;
+}
 
-// /* Values
-// â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
-// .values {
-//   background-image: url('https://dl.dropboxusercontent.com/u/60183450/values-bg.jpg');
-//   background-size: cover;
-//   color: #fff;
-//   padding-bottom: 5rem;
-// }
+.site-footer {
+	padding: 2.5rem 0;
+    font-size: 80%;
+    color: #666;
+    background-color: #eee;
+    border-top: 1px solid #e5e5e5;
 
-// .values-alt {
-//   background-color: #f4f4f4;
-//   padding-bottom: 5rem;
-// }
+    p {
+        margin: 0;
+    }
+}
 
-// .value-multiplier {
-//   margin-bottom: .5rem;
-//   color: #11DFC7;
-// }
-// .value-heading {
-//   margin-bottom: .3rem;
-// }
-// .value-description {
-//   opacity: .8;
-//   font-weight: 300;
-// }
+.site-footer .contact {
+    float: left;
+    margin-right: 3em;
+}
+
+.site-footer .contact a {
+    color: #8085C1;
+}
+
+.site-footer .rss {
+    margin-top: 1.1em;
+    margin-right: -.2em;
+    float: right;
+}
+
+.site-footer .rss img {
+    border: 0;
+}
+
+
+.value {
+	text-align: center;
+}
+.value-prop {
+  margin-top: 1rem; }
+.value-props {
+	text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem; }
+.value-img {
+  display: block;
+  text-align: center;
+  margin: 2.5rem auto 0; }
+
+
+.values {
+  background-image: url('https://dl.dropboxusercontent.com/u/60183450/values-bg.jpg');
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  padding: 5rem 0;
+}
+
+.value-multiplier { 
+  margin-bottom: .5rem;
+  color: #11DFC7;
+}
+.value-heading {
+  margin-bottom: .3rem;
+}
+.value-description {
+  opacity: .8;
+  font-weight: 300;
+}
 
 
 
