@@ -65,18 +65,6 @@ body {
     padding: 5em 0;
 }
 
-  a.menu-link {
-    float: right;
-    display: block;
-    padding: 1em;
-
-    @include laptop {
-      display: none;
-    }
-  }
-
-
-
 @media (max-width: 991px) {
   .navbar-list {
     background: #fff;
@@ -84,9 +72,11 @@ body {
     border-top: none;
     margin-top: 0;
     position: absolute;
-    // right: 0;
     top: 6.5rem;
     text-align: center;
+    // right: 0;
+
+
     width: 992px;
     left: 50%;
     margin-left: -500px;
