@@ -18,6 +18,14 @@
 @import "modules/media-queries";
 // @import "syntax";
 
+// Media queries - @include mobile { selector: style; }
+@mixin mobile   { @media (min-width: #{$width_mobile})  { @content; } }
+@mixin phablet  { @media (min-width: #{$width_phablet}) { @content; } }
+@mixin tablet   { @media (min-width: #{$width_tablet})  { @content; } }
+@mixin laptop   { @media (min-width: #{$width_laptop})  { @content; } }
+@mixin desktop  { @media (min-width: #{$width_desktop}) { @content; } }
+@mixin hdtv   { @media (min-width: #{$width_hdtv})  { @content; } }
+@mixin nomobile { @media (max-width: #{$hidden_mobile}) { @content; } }
 
 :root {
 	--space: 50px;
@@ -57,12 +65,60 @@ body {
     padding: 5em 0;
 }
 
+  a.menu-link {
+    float: right;
+    display: block;
+    padding: 1em;
+
+    @include laptop {
+      display: none;
+    }
+  }
+
+
+
+@media (max-width: 991px) {
+  .navbar-list {
+    background: #fff;
+    border: 1px solid #eee;
+    border-top: none;
+    margin-top: 0;
+    position: absolute;
+    // right: 0;
+    top: 6.5rem;
+    text-align: center;
+    width: 992px;
+    left: 50%;
+    margin-left: -500px;
+  }
+
+  .navbar .navbar-item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
 .navbar {
     ul {
+      transition: all 0.3s ease-out;
         display: inline-block;
         float: right;
-        margin: 0;
+        // margin: 0;
         padding: 0;
+
+        overflow: hidden;
+        max-height: 0;
+
+        @include laptop {
+          max-height: none;
+        }
+
+        &.active-menu {
+          max-height: 15em;
+        }
     }
 
     li {
@@ -264,6 +320,151 @@ body {
   opacity: .8;
   font-weight: 300;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$hamburger_width: 3rem;       // width of button area
+$hamburger_height: 6.5rem;      // height of button area
+$hamburger_bar: .2rem;        // thickness of button bars
+$hamburger_pad: 0;       // left/right padding between button area and bars.
+$hamburger_bar_space: .5rem;     // spacing between button bars
+
+$transistion_duration: .3s;
+$hamburger_color: #333; // not explaining this one
+$hamburger_color_active: #555;
+
+.hamburger {
+  display: block;
+  // float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9000;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $hamburger_width;
+  height: $hamburger_height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  @include laptop {
+    display: none;
+  }
+
+  // @include laptop {
+  //  display: none;
+  // }
+
+  span {
+    display: block;
+    position: absolute;
+    top: ($hamburger_height / 2) - ($hamburger_bar / 2);
+    left: $hamburger_pad;
+    right: $hamburger_pad;
+    height: $hamburger_bar;
+    background-color: $hamburger_color;
+    transition-duration: $transistion_duration;
+    // transition-delay: $transistion_duration;
+
+    &::before, 
+    &::after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: $hamburger_bar;
+      background-color: $hamburger_color;
+      content: "";
+      transition-duration: $transistion_duration;
+      // transition-delay: $transistion_duration;
+    }
+    
+    &::before {
+      top: -$hamburger_bar - $hamburger_bar_space;
+      transition-property: top, transform;
+    }
+
+    &::after {
+      bottom: -$hamburger_bar - $hamburger_bar_space;
+      transition-property: bottom, transform;
+    }
+  }
+}
+
+/* active state, i.e. menu open */
+
+button.hamburger.is-active {
+  background-color: transparent;
+  // position: fixed;
+  // top: 0;
+  // right: 15px;
+
+}
+
+button.hamburger.is-active span {
+  background-color: $hamburger_color_active;
+  transform: rotate(-225deg);
+}
+
+.hamburger.is-active span::before {
+  background-color: $hamburger_color_active;
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.hamburger.is-active span::after {
+  background-color: transparent;
+  bottom: 0;
+  transform: rotate(-0deg);
+}
+
+.hamburger.is-active span::before,
+.hamburger.is-active span::after {
+  transition: $transistion_duration;
+  // transition-delay: $transistion_duration;
+}
+
+button.hamburger,
+button.hamburger:hover,
+button.hamburger:focus {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+
+
+
+
+
 
 
 

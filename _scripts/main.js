@@ -107,6 +107,43 @@ $(document).ready(function() {
   $(window).resize(function () {
     stickFooter();
   });
+  
+
+
+
+
+
+
+    // toggle the hamburger open and closed states
+    var removeClass = true;
+    $(".hamburger").click(function () {
+      $(".hamburger").toggleClass('is-active');
+      $(".navbar-list").toggleClass('active-menu');
+      removeClass = false;
+    });
+
+    $(".sideNav").click(function() {
+      removeClass = false;
+    });
+
+    $("html").click(function () {
+      if (removeClass) {
+        $(".hamburger").removeClass('is-active');
+        $(".navbar-list").removeClass('active-menu');
+      }
+      removeClass = true;
+    });
+
+    // disable side nav for laptop and desktop
+    $(window).resize(function() {
+      if( $(this).width() > 991 ) {
+        $(".hamburger").removeClass('is-active');
+        $(".navbar-list").removeClass('active-menu');
+      }
+    });
+
+
+
 
   init();
 
