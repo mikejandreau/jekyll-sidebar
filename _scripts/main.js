@@ -118,18 +118,18 @@ $(document).ready(function() {
     var removeClass = true;
     $(".hamburger").click(function () {
       $(".hamburger").toggleClass('is-active');
-      $(".navbar-list").toggleClass('active-menu');
+      $(".navbar-list, .navbar").toggleClass('active-menu');
       removeClass = false;
     });
 
-    $(".sideNav").click(function() {
+    $(".navbar-list").click(function() {
       removeClass = false;
     });
 
     $("html").click(function () {
       if (removeClass) {
         $(".hamburger").removeClass('is-active');
-        $(".navbar-list").removeClass('active-menu');
+        $(".navbar-list, .navbar").removeClass('active-menu');
       }
       removeClass = true;
     });
@@ -138,7 +138,7 @@ $(document).ready(function() {
     $(window).resize(function() {
       if( $(this).width() > 991 ) {
         $(".hamburger").removeClass('is-active');
-        $(".navbar-list").removeClass('active-menu');
+        $(".navbar-list, .navbar").removeClass('active-menu');
       }
     });
 

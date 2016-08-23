@@ -24,7 +24,7 @@
 @mixin tablet   { @media (min-width: #{$width_tablet})  { @content; } }
 @mixin laptop   { @media (min-width: #{$width_laptop})  { @content; } }
 @mixin desktop  { @media (min-width: #{$width_desktop}) { @content; } }
-@mixin hdtv   { @media (min-width: #{$width_hdtv})  { @content; } }
+@mixin hdtv     { @media (min-width: #{$width_hdtv})    { @content; } }
 @mixin nomobile { @media (max-width: #{$hidden_mobile}) { @content; } }
 
 :root {
@@ -65,28 +65,19 @@ body {
     padding: 5em 0;
 }
 
-@media (max-width: 991px) {
-  .navbar-list {
-    background: #fff;
-    border: 1px solid #eee;
-    border-top: none;
-    margin-top: 0;
-    position: absolute;
-    top: 6.5rem;
-    text-align: center;
-    // right: 0;
 
 
-    width: 992px;
-    left: 50%;
-    margin-left: -500px;
-  }
 
-  .navbar .navbar-item {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+
+
+
+
+
+.navbar-inner {
+  @include laptop {
+    width: 80%;
+    margin: 0 auto;
+    height: 6.5rem;
   }
 }
 
@@ -193,7 +184,17 @@ body {
     background: #fff;
     z-index: 99;
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #eee;   
+
+    // &.active-menu {
+    //   height: 265px;
+
+    // }
+  }
+  // .navbar-spacer {
+
+  //   height: 6.5rem;
+  // }
     .navbar {
     	// background: rgba(255,0,0,0.5);
     	transition: .3s;
@@ -218,7 +219,17 @@ body {
     margin: 0;
     text-decoration: none;
     line-height: 6.5rem;
-    color: #222; }
+    color: #222; 
+    }
+    .title {
+      position: absolute;
+      left: 10%;
+
+      @include laptop {
+        position: relative;
+        left: auto;
+      }
+    }
   .navbar-link.active {
     color: #33C3F0; }
   .has-docked-nav .navbar {
@@ -325,6 +336,42 @@ body {
 
 
 
+@media (max-width: 991px) {
+  .navbar-list {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    // border-top: none;
+    margin-top: 0;
+    position: relative;
+    top: 6.5rem;
+    // text-align: center;
+    right: 0;
+
+
+    width: 100%;
+    // left: 50%;
+    // margin-left: -500px;
+  }
+
+  // .navbar {
+  //   height: auto;
+  // }
+
+  .navbar .navbar-item {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    border-top: 1px solid #eee;
+    float: none;
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -344,7 +391,7 @@ $hamburger_color_active: #555;
   // float: right;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10%;
   z-index: 9000;
   overflow: hidden;
   margin: 0;
