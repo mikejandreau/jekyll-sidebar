@@ -76,6 +76,7 @@ body {
 .navbar-inner {
   @include laptop {
     width: 80%;
+    max-width: 960px;
     margin: 0 auto;
     height: 6.5rem;
   }
